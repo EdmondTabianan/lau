@@ -1,0 +1,268 @@
+/* === Main Content === */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  transition: transform 0.3s ease;
+}
+
+body.sidebar-open main {
+  transform: translateX(250px);
+}
+
+/* === Hero Section === */
+.hero {
+  background: url('cafe.avif') no-repeat center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+/* === Section Headings === */
+h2 {
+  font-size: 2rem;
+  border-bottom: 3px solid #7d5a50;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* === Menu Image === */
+.menu-image {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* === Menu Table === */
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.menu-table th,
+.menu-table td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.menu-table th {
+  background-color: #e9d8c7;
+  color: #3a2e2e;
+  font-weight: bold;
+}
+
+.menu-table td:first-child {
+  text-align: left;
+}
+
+/* === Add-ons === */
+.addons {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+.addons li {
+  background: #fff;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-left: 5px solid #7d5a50;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* === Franchising Section === */
+#franchising {
+  background-color: #f9f5f2;
+  padding: 3rem 1.5rem;
+}
+
+#franchising h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#franchising ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#franchising ul li::before {
+  content: "☕ ";
+  margin-right: 0.5rem;
+  color: #c48b6f;
+}
+
+/* === Contact Section === */
+#contact {
+  background: #fff8f0;
+  padding: 3rem 1rem 4rem;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(125, 90, 80, 0.15);
+  font-family: inherit;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  color: #7d5a50;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+#contact p {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #5a4a42;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+/* Contact layout */
+.contact-wrapper {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1 1 320px;
+  border-radius: 10px;
+}
+
+/* Contact Info */
+.contact-info {
+  background: #f2e8df;
+  padding: 2rem;
+  box-shadow: 0 6px 14px rgba(125, 90, 80, 0.12);
+  color: #4a3a33;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.contact-info li {
+  margin-bottom: 1rem;
+}
+
+.contact-info a {
+  color: #7d5a50;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #a27b6b;
+  text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-links a {
+  background: #7d5a50;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(125, 90, 80, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: #a27b6b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(162, 123, 107, 0.4);
+}
+
+/* Contact Form */
+.contact-form {
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(125, 90, 80, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #7d5a50;
+  margin-bottom: 0.3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #d7c4b8;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7d5a50;
+  outline: none;
+  box-shadow: 0 0 8px rgba(125, 90, 80, 0.3);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+}
+
+.contact-form button {
+  background-color: #7d5a50;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: none;
+  padding: 0.75rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background-color: #a27b6b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(162, 123, 107, 0.4);
+}

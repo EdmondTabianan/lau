@@ -1,0 +1,64 @@
+/* === Global Styles === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f8f4f0;
+  color: #3a2e2e;
+  line-height: 1.6;
+}
+
+/* === Responsive Fixes for Tablets and Below === */
+@media (max-width: 768px) {
+  .hero {
+    font-size: 2rem;
+    height: 40vh;
+  }
+
+  .header-container h1 {
+    font-size: 1.5rem;
+    margin-left: 2.5rem; /* Adjusted to accommodate hamburger */
+  }
+
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  .menu-table {
+    font-size: 0.9rem;
+  }
+
+  .menu-table th,
+  .menu-table td {
+    padding: 0.5rem;
+  }
+}
+
+/* === Responsive Fixes for Mobile Phones === */
+@media (max-width: 480px) {
+  .hero {
+    font-size: 1.6rem;
+    height: 30vh;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  #contact p {
+    font-size: 1rem;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
