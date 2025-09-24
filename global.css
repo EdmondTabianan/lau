@@ -15,23 +15,21 @@ body {
 }
 
 /* === Responsive Fixes for Tablets and Below === */
+/* === Tablet Styles (up to 768px) === */
 @media (max-width: 768px) {
   .hero {
     font-size: 2rem;
     height: 40vh;
+    padding: 0.5rem;
   }
 
   .header-container h1 {
     font-size: 1.5rem;
-    margin-left: 2.5rem; /* Adjusted to accommodate hamburger */
+    margin-left: 2.5rem;
   }
 
-  .contact-wrapper {
-    flex-direction: column;
-  }
-
-  #contact h2 {
-    font-size: 2rem;
+  main {
+    padding: 0 1rem;
   }
 
   .menu-table {
@@ -42,13 +40,37 @@ body {
   .menu-table td {
     padding: 0.5rem;
   }
+
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 1 1 100%;
+    padding: 1.5rem;
+  }
+
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  #contact p {
+    font-size: 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
 }
 
-/* === Responsive Fixes for Mobile Phones === */
+/* === Mobile Styles (up to 480px) === */
 @media (max-width: 480px) {
   .hero {
     font-size: 1.6rem;
     height: 30vh;
+    padding: 0.5rem;
   }
 
   h2,
@@ -56,12 +78,43 @@ body {
     font-size: 1.3rem;
   }
 
-  #contact p {
-    font-size: 1rem;
+  .header-container h1 {
+    font-size: 1.3rem;
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .menu-table {
+    font-size: 0.8rem;
+  }
+
+  .menu-table th,
+  .menu-table td {
+    padding: 0.4rem;
+  }
+
+  .contact-wrapper {
+    gap: 1.5rem;
   }
 
   .contact-info,
   .contact-form {
-    padding: 1.5rem;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  form {
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  form button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.6rem 0;
   }
 }
+
