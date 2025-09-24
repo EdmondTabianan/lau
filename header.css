@@ -2,7 +2,6 @@
 header {
   background-color: #7d5a50;
   color: #fff;
-  padding: 1rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -13,10 +12,10 @@ header {
 
 .header-container {
   display: flex;
-  align-items: center;
+  align-items: center;         /* Vertically center children */
   justify-content: flex-start;
-  padding: 0 1rem;
-  position: relative; /* For absolute positioning of buttons */
+  padding: 1rem 1rem;
+  position: relative;
 }
 
 .header-container h1 {
@@ -26,13 +25,14 @@ header {
   text-align: center;
 }
 
-/* Hamburger and Close Button Styling */
+/* === Hamburger & Close Button === */
 .hamburger,
 .close-sidebar {
   position: absolute;
-  top: 1.2rem;
+  top: 50%;                    /* Position from center vertically */
   left: 1rem;
-  font-size: 2rem;
+  transform: translateY(-50%); /* Perfect vertical centering */
+  font-size: 2.2rem;           /* Slightly larger for both */
   background: none;
   border: none;
   color: #f0d9c1;
@@ -40,12 +40,11 @@ header {
   z-index: 1100;
 }
 
-/* Hide close button by default */
 .close-sidebar {
+  font-size: 2.6rem;           /* Make the "X" icon noticeably larger */
   display: none;
 }
 
-/* Toggle visibility when sidebar is open */
 body.sidebar-open .hamburger {
   display: none;
 }
@@ -53,6 +52,7 @@ body.sidebar-open .hamburger {
 body.sidebar-open .close-sidebar {
   display: block;
 }
+
 
 /* === Sidebar Navigation === */
 nav.nav-links {
