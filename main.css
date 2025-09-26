@@ -6,6 +6,13 @@ main {
   transition: transform 0.3s ease;
 }
 
+/* === Section Container (Uniform Width for Sections) === */
+.section-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
 /* === Hero Section === */
 .hero {
   background: url('cafe.avif') no-repeat center/cover;
@@ -33,6 +40,7 @@ h2 {
 
 /* === Menu Image === */
 .menu-image {
+  image--url('menu.jpg');
   width: 100%;
   max-width: 700px;
   display: block;
@@ -73,13 +81,62 @@ h2 {
   padding-left: 0;
   font-size: 1rem;
 }
-
 .addons li {
   background: #fff;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
   border-left: 5px solid #7d5a50;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addons .item {
+  flex: 1;
+}
+.addons .price {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.carousel-slide {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-nav {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.carousel-btn {
+  background-color: #7d5a50;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.carousel-btn:hover {
+  background-color: #5e433b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* === Franchising Section === */
@@ -209,7 +266,6 @@ h2 {
 }
 
 /* Contact Form */
-/* === Contact Form Styles === */
 form {
   background: #fff;
   padding: 2rem;
@@ -262,4 +318,121 @@ form button[type="submit"]:hover {
   background-color: #a27b6b;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(162, 123, 107, 0.4);
+}
+
+/* === Modal Background === */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* === Modal Content === */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* === Close Button === */
+.modal .close {
+  color: #aaa;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal .close:hover {
+  color: #333;
+}
+
+/* === Login Form Styles === */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form button {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background-color: #7d5a50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #5e433b;
+}
+
+/* === Responsive Modal for Tablets (≤768px) === */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1.5rem;
+    margin: 10% auto;
+    width: 95%;
+    max-width: 95%;
+  }
+
+  .modal .close {
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 1rem;
+  }
+}
+
+/* === Responsive Modal for Phones (≤480px) === */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1.25rem 1rem;
+    margin: 20% auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 6px;
+  }
+
+  .modal .close {
+    right: 0.75rem;
+    top: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 0.95rem;
+  }
 }
