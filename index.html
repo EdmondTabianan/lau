@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cafe Kaze Kofi</title>
+  <title>Kofi Kaze</title>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="global.css" />
@@ -18,13 +18,11 @@
     <div class="header-container">
       <button class="hamburger">&#9776;</button>
 	  <button class="close-sidebar">&times;</button>
-      <h1>Cafe Kaze Kofi</h1>
+      <h1>Kofi Kaze</h1>
     </div>
 
     <!-- Sidebar Navigation -->
     <nav class="nav-links">
-      <a href="#" id="loginBtn">Log In</a>
-      <a href="#" id="logoutBtn" style="display: none;">Logout</a>
       <a href="#hero">Home</a>
       <a href="#menu">Menu</a>
       <a href="#about">About</a>
@@ -39,7 +37,7 @@
 
   <!-- === Hero Section === -->
   <section class="hero" id="hero">
-    Welcome to Cafe Kaze Kofi
+    Welcome to Kofi Kaze
   </section>
 
   <!-- === Main Content === -->
@@ -47,26 +45,10 @@
 
     <!-- === Menu Section === -->
     <section id="menu">
+      <br><br>
       <h2>Our Menu</h2>
       <p>Delicious coffee and fresh pastries made with love.</p>
-      <img src="menu.jpg" alt="Cafe Menu" class="menu-image" />
-
-      <!-- === Login Modal === -->
-      <div id="loginModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Login</h2>
-          <form class="login-form">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required />
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required />
-
-            <button type="submit">Log In</button>
-          </form>
-        </div>
-      </div>
+      <img src="menu1.jpeg" alt="Cafe Menu" class="menu-image" />
 
       <!-- === Carousel === -->
       <div class="carousel-container">
@@ -151,49 +133,97 @@
 
    <!-- About Section -->
 <section id="about">
+  <br><br>
   <h2>About Us</h2>
-  <p>
-    At Cafe Kaze Kofi, we are passionate about crafting exceptional coffee experiences tailored to every taste. Whether you're craving our rich Coffee Series, refreshing Soda Series, or indulgent Non-Coffee and Matcha specialties, we bring quality and creativity together in every cup.
-  </p>
-  <p>
-    We believe that great coffee shouldn't come with a hefty price tag. That’s why we offer low-cost, high-quality drinks made from the finest beans and freshest ingredients, ensuring every sip is worth savoring.
-  </p>
-  <p>
-    Our baristas expertly prepare classic favorites like Sweet Americano and Caramel Macchiato, as well as unique blends such as Blue Lemonade Soda and Matcha Berry. Plus, with a variety of add-ons, you can customize your drink just the way you like it.
-  </p>
-  <p>
-    Beyond great drinks, Cafe Kaze Kofi is a cozy space designed for good vibes, community, and relaxation — the perfect spot to catch up with friends, work, or simply enjoy a peaceful moment with your favorite brew.
-  </p>
-  <p>
-    Join us and discover your new favorite drink in a welcoming atmosphere that celebrates quality, affordability, and the joy of connection.
-  </p>
+<p>
+  At <strong>Kofi Kaze</strong>, we’re passionate about delivering exceptional coffee experiences for every kind of craving. From bold brews in our Coffee Series to refreshing twists in our Soda Series, and indulgent Matcha and Non-Coffee favorites — each drink is a unique blend of flavor and creativity.
+</p>
+<p>
+  We believe great coffee should be accessible to everyone. That’s why we offer premium-quality beverages at budget-friendly prices, made with carefully selected beans and the freshest ingredients. Every cup is crafted to delight, without breaking the bank.
+</p>
+<p>
+  Our skilled baristas serve up everything from timeless classics like Sweet Americano and Caramel Macchiato to creative options like Blue Lemonade Soda and Matcha Berry. Want to make it your own? Choose from a variety of add-ons to personalize your perfect drink.
+</p>
+<p>
+  More than just a coffee stop, Kofi Kaze is a warm and welcoming space — ideal for studying, working, hanging out with friends, or simply enjoying a peaceful moment with your favorite brew. We’ve created an atmosphere where good vibes and good drinks come together.
+</p>
+<p>
+  Come discover your new go-to drink at Kofi Kaze — where flavor meets affordability, and every visit feels like home.
+</p>
+
 </section>
 
 <!-- Franchising Section -->
 <section id="franchising">
-  <h2>Franchise with Cafe Kaze Kofi</h2>
-  <p>
-    Ready to brew success with us? Cafe Kaze Kofi is expanding — and you can be a part of our journey! We’re looking for passionate, community-driven individuals who want to bring great coffee, affordable prices, and good vibes to more people.
-  </p>
-  <h3>Why Franchise with Us?</h3>
-  <ul>
-    <li>✅ Proven business model with a loyal customer base</li>
-    <li>✅ Low startup costs and flexible shop formats</li>
-    <li>✅ Full training and ongoing support</li>
-    <li>✅ Access to our premium ingredients and branding</li>
-    <li>✅ Marketing and operations assistance</li>
-  </ul>
-  <p>
-    Whether you're looking to open a cozy café or a take-out kiosk, we’ll guide you every step of the way.
-  </p>
-  <p>
-    <strong>Interested?</strong> Send us a message through the contact form or email us at
-    <a href="mailto:franchise@kazekofi.com">franchise@kazekofi.com</a>.
-  </p>
+  <div class="franchise-cta">
+    <h2>Franchise With Us</h2>
+    <p>Interested in joining the Kofi Kaze family? Click below to inquire!</p>
+    <button id="openFranchiseModal">Inquire Now</button>
+  </div>
+
+  <!-- Modal container -->
+  <div id="franchiseModal" class="modal" aria-hidden="true">
+    <div class="modal-content franchise-modal-content" role="dialog" aria-labelledby="franchiseModalTitle" aria-describedby="franchiseModalDesc">
+      
+      <button class="close" aria-label="Close Modal">&times;</button>
+      
+      <h2 id="franchiseModalTitle">Franchise Inquiry</h2>
+      <p id="franchiseModalDesc">
+        Interested in joining the Kofi Kaze family? Fill out the form below to inquire about franchising opportunities for a café or kiosk.
+      </p>
+  
+      <form action="https://formsubmit.co/your@email.com" method="POST">
+        <!-- Hidden settings -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+        <input type="text" name="_honey" style="display:none"> <!-- Honeypot to prevent spam -->
+  
+        <!-- Inquiry Fields -->
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="tel" name="phone" placeholder="Contact Number" />
+        <input type="text" name="location" placeholder="Preferred Franchise Location" required />
+        
+        <select name="store_type" required>
+          <option value="" disabled selected>Select Preferred Store Type</option>
+          <option value="Café">Café</option>
+          <option value="Kiosk">Kiosk</option>
+          <option value="Undecided">Undecided</option>
+        </select>
+  
+        <input type="text" name="budget" placeholder="Available Investment Budget (₱)" required />
+        <input type="text" name="experience" placeholder="Business Experience (if any)" />
+        <input type="text" name="timeline" placeholder="Timeline to Start (e.g., 3 months)" />
+  
+        <textarea name="message" placeholder="Tell us more about yourself and why you want to franchise with us..." rows="5" required></textarea>
+  
+        <button type="submit">Send Franchise Inquiry</button>
+      </form>
+  
+      <h3>Frequently Asked Questions</h3>
+      <ul class="faq">
+        <li>
+          <strong>Q: What’s the initial investment?</strong><br>
+          A: Our franchise packages start competitively and depend on your chosen store type and location.
+        </li>
+        <li>
+          <strong>Q: Do I need prior café experience?</strong><br>
+          A: Not at all! We provide full training, support, and ongoing guidance for new franchisees.
+        </li>
+        <li>
+          <strong>Q: How long does the process take?</strong><br>
+          A: From inquiry to launch, the process typically takes 1–3 months, depending on your readiness and site approval.
+        </li>
+      </ul>
+  
+      <p>📧 Prefer to email us directly? Reach us at: 
+        <a href="mailto:franchise@KofiKaze.com">franchise@KofiKaze.com</a>
+      </p>
+    </div>
+  </div>
 </section>
 
-
-       <!-- Contact Section -->
+<!-- Contact Section -->
 <section id="contact">
   <h2>Contact Us</h2>
   <p>
@@ -201,39 +231,34 @@
   </p>
 
   <div class="contact-wrapper">
+    <!-- === Contact Info === -->
     <div class="contact-info">
       <ul>
         <li><strong>📍 Address:</strong> 123 Coffee St, Brewtown</li>
-        <li><strong>✉️ Email:</strong> <a href="mailto:contact@kazekofi.com">contact@kazekofi.com</a></li>
-        <li><strong>📞 Phone:</strong> <a href="tel:+1234567890">+123 456 7890</a></li>
+        <li><strong>✉️ Email:</strong> 
+          <a href="mailto:contact@KofiKaze.com" aria-label="Email us">contact@KofiKaze.com</a>
+        </li>
+        <li><strong>📞 Phone:</strong> 
+          <a href="tel:+1234567890" aria-label="Call us">+123 456 7890</a>
+        </li>
       </ul>
 
+      <!-- === Social Links === -->
       <div class="social-links">
-        <a href="#" aria-label="Facebook" title="Facebook">🔵 Facebook</a>
-        <a href="#" aria-label="Instagram" title="Instagram">📸 Instagram</a>
-        <a href="#" aria-label="Twitter" title="Twitter">🐦 Twitter</a>
+        <a href="#" aria-label="Visit our Facebook page" title="Facebook">🔵 Facebook</a>
+        <a href="#" aria-label="Visit our Instagram profile" title="Instagram">📸 Instagram</a>
+        <a href="#" aria-label="Visit our Twitter profile" title="Twitter">🐦 Twitter</a>
       </div>
     </div>
-
-    <!-- Updated Contact Form -->
-    <form action="https://formsubmit.co/your@email.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-      <input type="text" name="_honey" style="display:none">
-
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
   </div>
 </section>
+
 
   </main>
 
   <!-- === Footer === -->
   <footer>
-    &copy; 2025 Cafe Kaze Kofi. All rights reserved.
+    &copy; 2025 Kofi Kaze. All rights reserved.
   </footer>
 
   <!-- === Scripts === -->

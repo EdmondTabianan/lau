@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === Sidebar Toggle Functionality ===
+  // === Sidebar Menu ===
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   const overlay = document.querySelector('.menu-overlay');
@@ -12,91 +12,51 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.toggle('sidebar-open', show);
   }
 
-  hamburger.addEventListener('click', () => toggleSidebar(true));
-  closeSidebarBtn.addEventListener('click', () => toggleSidebar(false));
-  overlay.addEventListener('click', () => toggleSidebar(false));
+  hamburger?.addEventListener('click', () => toggleSidebar(true));
+  closeSidebarBtn?.addEventListener('click', () => toggleSidebar(false));
+  overlay?.addEventListener('click', () => toggleSidebar(false));
+  links.forEach(link => link.addEventListener('click', () => toggleSidebar(false)));
 
-  links.forEach(link => {
-    link.addEventListener('click', () => toggleSidebar(false));
-  });
+  // === Smooth Scroll ===
+  const navLinksArray = Array.from(document.querySelectorAll('nav.nav-links a[href^="#"]'));
+  const sectionIds = navLinksArray.map(link => link.getAttribute('href').substring(1));
+  const sections = sectionIds.map(id => document.getElementById(id));
 
-  // === Login Modal ===
-  const loginBtn = document.getElementById("loginBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
-  const modal = document.getElementById("loginModal");
-  const closeModalBtn = modal.querySelector(".close");
-
-  // Function to update login/logout visibility
-  function updateAuthButtons(isLoggedIn) {
-    loginBtn.style.display = isLoggedIn ? "none" : "block";
-    logoutBtn.style.display = isLoggedIn ? "block" : "none";
-  }
-
-  // Assume user starts logged out
-  updateAuthButtons(false);
-
-  // Open login modal
-  loginBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    modal.style.display = "block";
-  });
-
-  // Close modal with X
-  closeModalBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-    updateAuthButtons(true); // Simulate successful login
-  });
-
-  // Close modal by clicking outside
-  window.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      updateAuthButtons(true); // Simulate successful login
-    }
-  });
-
-  // Logout
-  logoutBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    updateAuthButtons(false); // User is now logged out
-  });
-
-  // === Smooth Scroll to Section ===
-  document.querySelectorAll('nav.nav-links a[href^="#"]').forEach(link => {
+  navLinksArray.forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute('href').slice(1);
-      const target = document.getElementById(targetId);
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
       const headerOffset = 80;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY - headerOffset;
 
       window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
+        top: offsetTop,
+        behavior: 'smooth'
       });
     });
   });
 
-  // === Active Link Highlight on Scroll ===
-  const sections = document.querySelectorAll('section');
+  // === Scroll-based Active Highlight using IntersectionObserver ===
+  const observerOptions = {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  };
 
-  window.addEventListener('scroll', () => {
-    let currentSectionId = '';
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 80;
-      if (pageYOffset >= sectionTop) {
-        currentSectionId = section.getAttribute('id');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      const navLink = document.querySelector(`nav.nav-links a[href="#${id}"]`);
+      if (entry.isIntersecting) {
+        navLinksArray.forEach(link => link.classList.remove('active'));
+        navLink?.classList.add('active');
       }
     });
+  }, observerOptions);
 
-    links.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(currentSectionId)) {
-        link.classList.add('active');
-      }
-    });
+  sections.forEach(section => {
+    if (section) observer.observe(section);
   });
 
   // === Carousel ===
@@ -111,17 +71,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  prevBtn.addEventListener("click", () => {
+  prevBtn?.addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     showSlide(currentIndex);
   });
 
-  nextBtn.addEventListener("click", () => {
+  nextBtn?.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % slides.length;
     showSlide(currentIndex);
   });
 
-  // Swipe support (mobile)
+  // Swipe Support
   let touchStartX = 0;
   const carouselContainer = document.querySelector(".carousel-container");
 
@@ -132,11 +92,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carouselContainer.addEventListener("touchend", (e) => {
       const touchEndX = e.changedTouches[0].clientX;
-      if (touchStartX - touchEndX > 50) nextBtn.click();
-      if (touchEndX - touchStartX > 50) prevBtn.click();
+      if (touchStartX - touchEndX > 50) nextBtn?.click(); // swipe left
+      if (touchEndX - touchStartX > 50) prevBtn?.click(); // swipe right
     });
   }
 
-  // Initialize first slide
   showSlide(currentIndex);
+
+  // === Modal ===
+  const modal = document.getElementById("franchiseModal");
+  const openBtn = document.getElementById("openFranchiseModal");
+  const closeBtn = modal?.querySelector(".close");
+
+  const openModal = () => {
+    modal?.classList.add("show");
+    document.body.classList.add("modal-open");
+  };
+
+  const closeModal = () => {
+    modal?.classList.remove("show");
+    document.body.classList.remove("modal-open");
+  };
+
+  openBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openModal();
+  });
+
+  closeBtn?.addEventListener("click", closeModal);
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("show")) {
+      closeModal();
+    }
+  });
 });

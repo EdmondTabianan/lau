@@ -1,46 +1,52 @@
-/* === Main Content === */
+:root {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adjust based on your fixed header height */
+}
+/* ========== MAIN LAYOUT ========== */
 main {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
-  transition: transform 0.3s ease;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
-/* === Section Container (Uniform Width for Sections) === */
 .section-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
-/* === Hero Section === */
+/* ========== HERO ========== */
 .hero {
   background: url('cafe.avif') no-repeat center/cover;
   height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-  text-align: center;
-  padding: 1rem;
   margin-top: 4rem;
   margin-bottom: 2rem;
+  padding: 1rem;
 }
 
-/* === Section Headings === */
+/* ========== HEADINGS ========== */
 h2 {
   font-size: 2rem;
   border-bottom: 3px solid #7d5a50;
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* === Menu Image === */
+/* ========== MENU SECTION ========== */
+#menu {
+  margin-top: 8rem;
+}
 .menu-image {
-  image--url('menu.jpg');
   width: 100%;
   max-width: 700px;
   display: block;
@@ -49,7 +55,6 @@ h2 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* === Menu Table === */
 .menu-table {
   width: 100%;
   border-collapse: collapse;
@@ -62,11 +67,11 @@ h2 {
   border: 1px solid #ccc;
   padding: 0.75rem;
   text-align: center;
-  background-color: #fff;
+  background: #fff;
 }
 
 .menu-table th {
-  background-color: #e9d8c7;
+  background: #e9d8c7;
   color: #3a2e2e;
   font-weight: bold;
 }
@@ -75,34 +80,39 @@ h2 {
   text-align: left;
 }
 
-/* === Add-ons === */
+/* ========== ADD-ONS ========== */
 .addons {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
   font-size: 1rem;
 }
+
 .addons li {
   background: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
   border-left: 5px solid #7d5a50;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
+
 .addons .item {
   flex: 1;
 }
+
 .addons .price {
   margin-left: 1rem;
   font-weight: bold;
 }
 
+/* ========== CAROUSEL ========== */
 .carousel-container {
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 300px;
 }
 
 .carousel-slide {
@@ -135,33 +145,151 @@ h2 {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* === Franchising Section === */
+/* ========== FRANCHISE SECTION ========== */
 #franchising {
   background-color: #f9f5f2;
-  padding: 3rem 1.5rem;
+  padding: 3rem 1rem;
+  text-align: center;
 }
 
-#franchising h2 {
+.franchise-cta h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  color: #7d5a50;
+  margin-bottom: 0.5rem;
 }
 
-#franchising ul {
+.franchise-cta p {
+  margin-bottom: 1.5rem;
+}
+
+.franchise-cta button {
+  padding: 0.75rem 1.5rem;
+  background-color: #6a4c93;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.franchise-cta button:hover {
+  background-color: #563d7c;
+}
+
+/* ========== MODAL ========== */
+.modal {
+  position: fixed;
+  top: 4rem; /* below the fixed header */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 4rem); /* fill space under header */
+  background-color: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.modal.show {
+  display: flex;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: calc(100vh - 8rem);
+  position: relative;
+  color: #333;
+  box-sizing: border-box;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #7d5a50;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.modal-content button[type="submit"] {
+  align-self: flex-start;
+  background-color: #6a4c93;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #563d7c;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #7d5a50;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content .faq {
+  margin-top: 2rem;
   list-style: none;
   padding-left: 0;
 }
 
-#franchising ul li::before {
-  content: "☕ ";
-  margin-right: 0.5rem;
-  color: #c48b6f;
+.modal-content .faq li {
+  margin-bottom: 1rem;
+  text-align: left;
 }
 
-/* === Contact Section === */
+.modal-content a {
+  color: #6a4c93;
+  font-weight: bold;
+}
+
+/* ========== CONTACT SECTION ========== */
 #contact {
   background: #fff8f0;
   padding: 3rem 1rem 4rem;
@@ -169,16 +297,14 @@ h2 {
   margin: 0 auto 4rem;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(125, 90, 80, 0.15);
-  font-family: inherit;
+  box-sizing: border-box;
 }
 
 #contact h2 {
   font-size: 2.5rem;
   color: #7d5a50;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   text-align: center;
-  font-weight: 700;
-  letter-spacing: 1.2px;
 }
 
 #contact p {
@@ -192,21 +318,18 @@ h2 {
   font-style: italic;
 }
 
-/* Contact layout */
 .contact-wrapper {
   display: flex;
-  gap: 3rem;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .contact-info,
 .contact-form {
-  flex: 1 1 320px;
-  border-radius: 10px;
+  flex: 1 1 300px;
 }
 
-/* Contact Info */
 .contact-info {
   background: #f2e8df;
   padding: 2rem;
@@ -214,6 +337,7 @@ h2 {
   color: #4a3a33;
   font-size: 1.1rem;
   line-height: 1.6;
+  border-radius: 8px;
 }
 
 .contact-info ul {
@@ -238,25 +362,24 @@ h2 {
   text-decoration: underline;
 }
 
-/* Social Links */
 .social-links {
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .social-links a {
   background: #7d5a50;
   color: #fff;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 30px;
-  font-weight: 600;
   text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.95rem;
+  gap: 0.3rem;
   box-shadow: 0 2px 6px rgba(125, 90, 80, 0.3);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .social-links a:hover {
@@ -265,44 +388,39 @@ h2 {
   box-shadow: 0 6px 14px rgba(162, 123, 107, 0.4);
 }
 
-/* Contact Form */
-form {
+.contact-form form {
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(125, 90, 80, 0.15);
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: inherit;
+  gap: 1rem;
 }
 
-form input[type="text"],
-form input[type="email"],
-form textarea {
+.contact-form form input,
+.contact-form form textarea {
   padding: 0.8rem 1rem;
   border: 1.5px solid #d7c4b8;
   border-radius: 8px;
   font-size: 1rem;
   resize: vertical;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-form input:focus,
-form textarea:focus {
+.contact-form form input:focus,
+.contact-form form textarea:focus {
   border-color: #7d5a50;
   outline: none;
   box-shadow: 0 0 8px rgba(125, 90, 80, 0.3);
 }
 
-form textarea {
+.contact-form form textarea {
   min-height: 120px;
 }
 
-form button[type="submit"] {
+.contact-form form button[type="submit"] {
   background-color: #7d5a50;
   color: #fff;
   font-weight: 700;
@@ -314,125 +432,36 @@ form button[type="submit"] {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-form button[type="submit"]:hover {
+.contact-form form button[type="submit"]:hover {
   background-color: #a27b6b;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(162, 123, 107, 0.4);
 }
 
-/* === Modal Background === */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
-/* === Modal Content === */
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto;
-  padding: 2rem;
-  border: 1px solid #888;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 8px;
-  position: relative;
-  box-sizing: border-box;
-}
-
-/* === Close Button === */
-.modal .close {
-  color: #aaa;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.modal .close:hover {
-  color: #333;
-}
-
-/* === Login Form Styles === */
-.login-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-form label {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.login-form input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.login-form button {
-  margin-top: 1.5rem;
-  padding: 0.75rem;
-  background-color: #7d5a50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.login-form button:hover {
-  background-color: #5e433b;
-}
-
-/* === Responsive Modal for Tablets (≤768px) === */
+/* ========== MEDIA QUERIES ========== */
 @media (max-width: 768px) {
-  .modal-content {
-    padding: 1.5rem;
-    margin: 10% auto;
-    width: 95%;
-    max-width: 95%;
+  .carousel-container {
+    min-height: 200px;
   }
 
-  .modal .close {
-    right: 1rem;
-    top: 1rem;
-    font-size: 1.4rem;
-  }
-
-  .login-form input,
-  .login-form button {
-    font-size: 1rem;
+  .contact-wrapper {
+    flex-direction: column;
   }
 }
 
-/* === Responsive Modal for Phones (≤480px) === */
 @media (max-width: 480px) {
-  .modal-content {
-    padding: 1.25rem 1rem;
-    margin: 20% auto;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 6px;
+  h2 {
+    font-size: 1.75rem;
   }
-
-  .modal .close {
-    right: 0.75rem;
-    top: 0.75rem;
-    font-size: 1.2rem;
+  .hero {
+    font-size: 2rem;
   }
-
-  .login-form input,
-  .login-form button {
+  .franchise-cta button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .contact-form form input,
+  .contact-form form textarea {
     font-size: 0.95rem;
   }
 }
