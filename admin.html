@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Page</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="footer.css" />
+</head>
+<body>
+
+  <!-- === Header === -->
+  <header>
+    <div class="header-container">
+      <button class="hamburger">&#9776;</button>
+      <button class="close-sidebar">&times;</button>
+      <h1>Kofi Kaze</h1>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#franchising">Franchising</a>
+      <a href="#contact">Contact</a>
+      <a href="#" id="openAdminModal">Edit Page</a>
+    </nav>
+
+    <div class="menu-overlay"></div>
+  </header>
+
+  <!-- === Hero Section === -->
+  <section class="hero" id="hero">
+    Welcome to Kofi Kaze
+  </section>
+
+  <!-- === Main Content === -->
+  <main>
+
+    <!-- === Menu Section === -->
+    <section id="menu">
+      <h2>Our Menu</h2>
+      <p>Delicious coffee and fresh pastries made with love.</p>
+      <img src="menu1.jpeg" alt="Cafe Menu" class="menu-image" />
+
+      <div id="menuCarouselContainer"></div>
+
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="prevBtn">◀ Prev</button>
+        <button class="carousel-btn" id="nextBtn">Next ▶</button>
+      </div>
+    </section>
+
+    <!-- Custom Sections -->
+    <div id="customSectionsContainer"></div>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        At <strong>Kofi Kaze</strong>, we’re passionate about delivering exceptional coffee experiences for every kind of craving...
+      </p>
+    </section>
+
+    <!-- Franchising Section -->
+    <section id="franchising">
+      <div class="franchise-cta">
+        <h2>Franchise With Us</h2>
+        <p>Interested in joining the Kofi Kaze family? Click below to inquire!</p>
+        <button id="openFranchiseModal">Inquire Now</button>
+      </div>
+
+      <!-- Franchise Modal -->
+      <div id="franchiseModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="franchiseModalTitle" aria-describedby="franchiseModalDesc">
+        <div class="modal-content franchise-modal-content" role="document">
+          <button class="close" aria-label="Close Modal">&times;</button>
+
+          <h2 id="franchiseModalTitle">Franchise Inquiry</h2>
+          <p id="franchiseModalDesc">
+            Interested in joining the Kofi Kaze family? Fill out the form below to inquire about franchising opportunities.
+          </p>
+
+          <form action="https://formsubmit.co/your@email.com" method="POST">
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html" />
+            <input type="text" name="_honey" style="display:none" />
+
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="tel" name="phone" placeholder="Contact Number" />
+            <input type="text" name="location" placeholder="Preferred Franchise Location" required />
+
+            <select name="store_type" required>
+              <option value="" disabled selected>Select Preferred Store Type</option>
+              <option value="Café">Café</option>
+              <option value="Kiosk">Kiosk</option>
+              <option value="Undecided">Undecided</option>
+            </select>
+
+            <input type="text" name="budget" placeholder="Available Investment Budget (₱)" required />
+            <input type="text" name="experience" placeholder="Business Experience (if any)" />
+            <input type="text" name="timeline" placeholder="Timeline to Start (e.g., 3 months)" />
+
+            <textarea name="message" placeholder="Tell us more about yourself..." rows="5" required></textarea>
+
+            <button type="submit">Send Franchise Inquiry</button>
+          </form>
+
+          <h3>Frequently Asked Questions</h3>
+          <ul class="faq">
+            <li><strong>Q:</strong> What’s the initial investment?<br />A: It depends on the store type and location.</li>
+            <li><strong>Q:</strong> Do I need prior café experience?<br />A: No. Full training is provided.</li>
+            <li><strong>Q:</strong> How long does the process take?<br />A: Typically 1–3 months.</li>
+          </ul>
+
+          <p>📧 Reach us at: <a href="mailto:franchise@KofiKaze.com">franchise@KofiKaze.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you!</p>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <ul>
+            <li><strong>📍 Address:</strong> 123 Coffee St, Brewtown</li>
+            <li><strong>✉️ Email:</strong> <a href="mailto:contact@KofiKaze.com">contact@KofiKaze.com</a></li>
+            <li><strong>📞 Phone:</strong> <a href="tel:+1234567890">+123 456 7890</a></li>
+          </ul>
+
+          <div class="social-links">
+            <a href="#">🔵 Facebook</a>
+            <a href="#">📸 Instagram</a>
+            <a href="#">🐦 Twitter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- === Footer === -->
+  <footer>
+    &copy; 2025 Kofi Kaze. All rights reserved.
+  </footer>
+
+  <!-- === Admin Edit Modal === -->
+  <div id="adminModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="adminModalTitle" aria-describedby="adminModalDesc">
+    <div class="modal-content" role="document">
+      <button class="close-modal" aria-label="Close Modal">&times;</button>
+      <h2 id="adminModalTitle">Admin Panel</h2>
+
+      <!-- Hero Background -->
+      <div>
+        <label for="heroBgInput">Hero Background Image URL</label>
+        <input type="text" id="heroBgInput" placeholder="Enter background image URL" />
+        <button id="saveHeroBgBtn">Update Background</button>
+      </div>
+
+      <hr />
+
+      <!-- Menu Management -->
+      <div>
+        <h3>Manage Menu Items</h3>
+
+        <label for="menuCategorySelect">Category</label>
+        <select id="menuCategorySelect">
+          <option value="Coffee Series">Coffee Series</option>
+          <option value="Soda Series">Soda Series</option>
+          <option value="Matcha Series">Matcha Series</option>
+          <option value="Non-Coffee Series">Non-Coffee Series</option>
+          <option value="Add-ons">Add-ons</option>
+        </select>
+
+        <label for="menuItemName">Item Name</label>
+        <input type="text" id="menuItemName" />
+
+        <label for="menuPrice12">Price (12oz)</label>
+        <input type="number" id="menuPrice12" min="0" />
+
+        <label for="menuPrice16">Price (16oz)</label>
+        <input type="number" id="menuPrice16" min="0" />
+
+        <label for="menuPrice22">Price (22oz)</label>
+        <input type="number" id="menuPrice22" min="0" />
+
+        <button id="addMenuItemBtn">Add Menu Item</button>
+      </div>
+
+      <div>
+        <h4>Existing Menu Items</h4>
+        <ul id="adminMenuList"></ul>
+      </div>
+
+      <hr />
+
+      <!-- Add Custom Section -->
+      <div>
+        <h3>Add Custom Section</h3>
+        <label for="customSectionTitle">Section Title</label>
+        <input type="text" id="customSectionTitle" />
+
+        <label for="customSectionContent">Section Content</label>
+        <textarea id="customSectionContent" rows="5"></textarea>
+
+        <button id="addCustomSectionBtn">Add Section</button>
+      </div>
+
+      <hr />
+
+      <!-- About Section Editing -->
+      <div>
+        <h3>Edit About Section</h3>
+        <label for="aboutTitleInput">Title</label>
+        <input type="text" id="aboutTitleInput" />
+
+        <label for="aboutContentInput">Content</label>
+        <textarea id="aboutContentInput" rows="5"></textarea>
+        <button id="saveAboutBtn">Save</button>
+      </div>
+    </div>
+  </div>
+  <!-- === Scripts === -->
+
+  <script type="" src="admin.js"></script>
+</body>
+</html>

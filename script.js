@@ -105,12 +105,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = modal?.querySelector(".close");
 
   const openModal = () => {
+    console.log("Opening modal"); // For debugging
     modal?.classList.add("show");
+    modal?.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
   };
 
   const closeModal = () => {
     modal?.classList.remove("show");
+    modal?.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
   };
 
